@@ -24,10 +24,7 @@ class PyxelImage:
         self.canvas = Canvas(data['canvas'])
         self.palette = Palette(data['palette'])
         self.tileset = Tileset(data['tileset'])
-        self.animations = {}
-
-        for n in range(len(data['animations'].keys())):
-            self.animations.update({n: Animation(n, data['animations'][str(n)])})
+        self.animations = {n: Animation(n, data['animations'][str(n)]) for n in range(len(data['animations'].keys()))}
 
     def get_tile(self) -> PIL.Image.Image:
         img = self.merge_layers()

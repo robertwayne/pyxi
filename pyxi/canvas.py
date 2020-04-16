@@ -14,7 +14,4 @@ class Canvas:
 
         # Layers
         self.layer_count = data['numLayers']
-        self.layers = {}
-
-        for n in range(self.layer_count):
-            self.layers.update({n: Layer(n, data['layers'][str(n)])})
+        self.layers = {n: Layer(n, data['layers'][str(n)]) for n in range(self.layer_count)}
