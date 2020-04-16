@@ -12,6 +12,21 @@ from pyxi.tileset import Tileset
 
 
 class PyxelImage:
+    """
+    Represents a `.pyxel` file.
+
+    :param file: Path to the file that you are opening.
+
+    Attributes
+        :version: Version of PyxelEdit that was used to create the image file.
+        :name: The name of the file.
+        :settings: Local settings related to PyxelEdit configuration and the image file.
+        :canvas: Settings related to the image canvas.
+        :palette: The color palette (in hexadecimal values) used in the image file.
+        :tileset: Settings related to the tile set.
+        :animations: The individual animations built in the image file.
+    """
+
     __slots__ = ('_path', 'version', 'name', 'settings', 'canvas', 'palette', 'tileset', 'animations')
 
     def __init__(self, file: str):
@@ -59,7 +74,7 @@ class PyxelImage:
 
     def extract(self):
         """Extracts all the individual files from a .pyxel file and
-        places them in a converted/<file_name> directory."""
+        places them in a `converted/<file_name>` directory."""
         with zipfile.ZipFile(self._path, 'r') as f:
             f.extractall(f'converted/{self.name}')
 
