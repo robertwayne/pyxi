@@ -5,7 +5,7 @@ with open('README.md', 'r') as file:
 
 setuptools.setup(
         name='pyxi',
-        version='0.1.0',
+        version='0.1.1',
         author='Rob Wagner',
         author_email='rob.wagner@outlook.com',
         description='A small library for interacting with `.pyxel` files from PyxelEdit.',
