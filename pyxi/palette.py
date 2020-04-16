@@ -8,7 +8,4 @@ class Palette:
         self.width = data['width']
         self.height = data['height']
         self.color_count = data['numColors']
-        self.colors = {}
-
-        for k, v in data['colors'].items():
-            self.colors.update({k: v})
+        self.colors = {k: v for k, v in data['colors'].items()}
