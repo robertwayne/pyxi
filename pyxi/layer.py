@@ -1,5 +1,7 @@
 from typing import Any, Dict
 
+from pyxi.tile_ref import TileReference
+
 
 class Layer:
     __slots__ = ('layer_id', 'blend_mode', 'alpha', 'hidden', 'name', 'muted', 'tile_references', 'soloed')
@@ -11,5 +13,5 @@ class Layer:
         self.alpha = data['alpha']
         self.hidden = data['hidden']
         self.muted = data['muted']
-        self.tile_references = data['tileRefs']
         self.soloed = data['soloed']
+        self.tile_references = {n: TileReference(n, data['tileRefs'][str(n)]) for n in range(len((data['tileRefs'])))}
