@@ -1,76 +1,52 @@
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
 Welcome to Pyxi's documentation!
 ================================
 
 `pyxi` is a small library for interfacing with PyxelEdit `.pyxel` files in an object-oriented manner.
 Currently it is extremely barebones, only letting you access all the values of your `.pyxel` files and loading a
-`PIL.Image.Image` object from a single tile. In the future, it should allow you to programatically modify image
-values, save files, and handle export/import needs; both single file and large tilesets.
+`PIL.Image.Image` object from a single tile.
 
-pyxi.animation module
----------------------
+.. toctree::
+   :maxdepth: 4
+   :caption: Contents:
 
-.. automodule:: pyxi.animation
-   :members:
-   :undoc-members:
-   :show-inheritance:
+PyxelImage
+-----------------
 
-pyxi.canvas module
+.. autoclass:: pyxi.image.PyxelImage
+    :members:
+
+Canvas
 ------------------
 
 .. automodule:: pyxi.canvas
    :members:
-   :undoc-members:
-   :show-inheritance:
 
-pyxi.image module
------------------
-
-.. automodule:: pyxi.image
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pyxi.layer module
------------------
-
-.. automodule:: pyxi.layer
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pyxi.palette module
+Palette
 -------------------
 
 .. automodule:: pyxi.palette
    :members:
-   :undoc-members:
-   :show-inheritance:
 
-pyxi.tile\_ref module
----------------------
-
-.. automodule:: pyxi.tile_ref
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pyxi.tileset module
+Tileset
 -------------------
 
 .. automodule:: pyxi.tileset
    :members:
-   :undoc-members:
-   :show-inheritance:
 
+Animation
+---------------------
 
-Module contents
----------------
-
-.. automodule:: pyxi
+.. automodule:: pyxi.animation
    :members:
-   :undoc-members:
-   :show-inheritance:
+
+Layer
+-----------------
+
+.. automodule:: pyxi.layer
+   :members:
+
+Tile Reference
+---------------------
+
+.. automodule:: pyxi.tile_ref
+   :members:
