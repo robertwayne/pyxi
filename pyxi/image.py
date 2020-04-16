@@ -5,6 +5,7 @@ from typing import Any, Dict, List, Union
 import PIL
 from PIL import Image
 
+from pyxi.animation import Animation
 from pyxi.canvas import Canvas
 from pyxi.palette import Palette
 from pyxi.tileset import Tileset
@@ -23,7 +24,10 @@ class PyxelImage:
         self.canvas = Canvas(data['canvas'])
         self.palette = Palette(data['palette'])
         self.tileset = Tileset(data['tileset'])
-        self.animations = data['animations']
+        self.animations = {}
+
+        for n in range(len(data['animations'].keys())):
+            self.animations.update({n: Animation(n, data['animations'][str(n)])})
 
     def get_tile(self) -> PIL.Image.Image:
         img = self.merge_layers()
