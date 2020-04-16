@@ -1,4 +1,5 @@
 # Pyxi
+[![PyPI version](https://badge.fury.io/py/pyxi.svg)](https://badge.fury.io/py/pyxi) [![Documentation Status](https://readthedocs.org/projects/pyxi/badge/?version=latest)](https://pyxi.readthedocs.io/en/latest/?badge=latest)
 
 `pyxi` is a small library for interfacing with PyxelEdit `.pyxel` files in an object-oriented manner.
 Currently it is extremely barebones, only letting you access all the values of your `.pyxel` files and loading a 
