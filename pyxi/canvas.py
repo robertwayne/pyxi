@@ -11,7 +11,5 @@ class Canvas:
         self.height = data['height']
         self.tile_width = data['tileWidth']
         self.tile_height = data['tileHeight']
-
-        # Layers
         self.layer_count = data['numLayers']
         self.layers = {n: Layer(n, data['layers'][str(n)]) for n in range(self.layer_count)}
