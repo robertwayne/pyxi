@@ -21,5 +21,6 @@ class Palette:
         self.colors = {k: v for k, v in data['colors'].items()}
 
     def to_dict(self) -> Dict:
+        """Returns a dictionary with original `.pyxel` docData.json keys."""
         return {'width': self.width, 'height': self.height, 'numColors': self.color_count,
                 'colors': {k: v for k, v in self.colors.items()}}

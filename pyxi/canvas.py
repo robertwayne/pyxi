@@ -27,6 +27,7 @@ class Canvas:
         self.layers = {n: Layer(n, data['layers'][str(n)]) for n in range(self.layer_count)}
 
     def to_dict(self) -> Dict:
+        """Returns a dictionary with original `.pyxel` docData.json keys."""
         return {'width': self.width, 'height': self.height, 'tileWidth': self.tile_width,
                 'tileHeight': self.tile_height, 'numLayers': self.layer_count,
                 'layers': {k: v.to_dict() for k, v in self.layers.items()}}

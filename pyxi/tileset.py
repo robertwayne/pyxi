@@ -23,5 +23,6 @@ class Tileset:
         self.columns = data['tilesWide']
 
     def to_dict(self) -> Dict:
+        """Returns a dictionary with original `.pyxel` docData.json keys."""
         return {'fixedWidth': self.fixed_width, 'tileWidth': self.tile_width, 'tileHeight': self.tile_height,
                 'numTiles': self.tile_count, 'tilesWide': self.columns}

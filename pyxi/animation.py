@@ -25,5 +25,6 @@ class Animation:
         self.frame_duration = data['frameDuration']
 
     def to_dict(self) -> Dict:
+        """Returns a dictionary with original `.pyxel` docData.json keys."""
         return {'name': self.name, 'length': self.length, 'baseTile': self.base_tile,
                 'frameDurationMultipliers': self.duration_multipliers, 'frameDuration': self.frame_duration}

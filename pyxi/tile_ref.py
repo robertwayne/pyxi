@@ -21,4 +21,5 @@ class TileReference:
         self.rot = data['rot']
 
     def to_dict(self) -> Dict:
+        """Returns a dictionary with original `.pyxel` docData.json keys."""
         return {'index': self.index, 'flipX': self.flipped, 'rot': self.rot}
