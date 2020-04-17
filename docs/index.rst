@@ -2,8 +2,8 @@ Welcome to Pyxi's documentation!
 ================================
 
 `pyxi` is a small library for interfacing with PyxelEdit `.pyxel` files in an object-oriented manner.
-Currently it is extremely barebones, only letting you access all the values of your `.pyxel` files and loading a
-`PIL.Image.Image` object from a single tile.
+Currently it allows for viewing all attributes of a `.pyxel` file, modifying values, and repacking the file
+into its original format for use within PyxelEdit.
 
 .. toctree::
    :maxdepth: 4
