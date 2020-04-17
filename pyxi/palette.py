@@ -22,4 +22,4 @@ class Palette:
 
     def to_dict(self) -> Dict:
         return {'width': self.width, 'height': self.height, 'numColors': self.color_count,
-                'colors': self.colors.items()}
+                'colors': {k: v for k, v in self.colors.items()}}
