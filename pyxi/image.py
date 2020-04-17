@@ -35,11 +35,16 @@ class PyxelImage:
         self._path = file
         self.version = data['version']
         self.name = data['name']
-        self.settings = {}
+        self.settings = data['settings']
         self.canvas = Canvas(data['canvas'])
         self.palette = Palette(data['palette'])
         self.tileset = Tileset(data['tileset'])
         self.animations = {n: Animation(n, data['animations'][str(n)]) for n in range(len(data['animations']))}
+
+    def to_dict(self) -> Dict:
+        return {'version': self.version, 'name': self.name, 'settings': self.settings,
+                'canvas': self.canvas.to_dict(), 'palette': self.palette.to_dict(),
+                'tileset': self.tileset.to_dict(), 'animations': {k: v.to_dict() for k, v in self.animations.items()}}
 
     def get_tile(self) -> PIL.Image.Image:
         """Merges layers and returns the image.

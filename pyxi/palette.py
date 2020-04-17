@@ -19,3 +19,7 @@ class Palette:
         self.height = data['height']
         self.color_count = data['numColors']
         self.colors = {k: v for k, v in data['colors'].items()}
+
+    def to_dict(self) -> Dict:
+        return {'width': self.width, 'height': self.height, 'numColors': self.color_count,
+                'colors': self.colors.items()}

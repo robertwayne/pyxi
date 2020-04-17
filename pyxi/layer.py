@@ -28,3 +28,8 @@ class Layer:
         self.muted = data['muted']
         self.soloed = data['soloed']
         self.tile_references = {n: TileReference(n, data['tileRefs'][str(n)]) for n in range(len((data['tileRefs'])))}
+
+    def to_dict(self) -> Dict:
+        return {'name': self.name, 'blendMode': self.blend_mode, 'alpha': self.alpha,
+                'hidden': self.hidden, 'muted': self.muted, 'soloed': self.soloed,
+                'tileRefs': {k: v.to_dict() for k, v in self.tile_references.items()}}

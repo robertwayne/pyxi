@@ -19,3 +19,6 @@ class TileReference:
         self.index = data['index']
         self.flipped = data['flipX']
         self.rot = data['rot']
+
+    def to_dict(self) -> Dict:
+        return {'index': self.index, 'flipX': self.flipped, 'rot': self.rot}

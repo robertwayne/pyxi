@@ -21,3 +21,7 @@ class Tileset:
         self.tile_height = data['tileHeight']
         self.tile_count = data['numTiles']
         self.columns = data['tilesWide']
+
+    def to_dict(self) -> Dict:
+        return {'fixedWidth': self.fixed_width, 'tileWidth': self.tile_width, 'tileHeight': self.tile_height,
+                'numTiles': self.tile_count, 'tilesWide': self.columns}

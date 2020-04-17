@@ -23,3 +23,7 @@ class Animation:
         self.base_tile = data['baseTile']
         self.duration_multipliers = data['frameDurationMultipliers']
         self.frame_duration = data['frameDuration']
+
+    def to_dict(self) -> Dict:
+        return {'name': self.name, 'length': self.length, 'baseTile': self.base_tile,
+                'frameDurationMultipliers': self.duration_multipliers, 'frameDuration': self.frame_duration}
