@@ -1,5 +1,6 @@
 import json
 import zipfile
+from pathlib import Path
 from typing import Any, Dict, List, Union
 
 import PIL
@@ -46,6 +47,25 @@ class PyxelImage:
                 'canvas': self.canvas.to_dict(), 'palette': self.palette.to_dict(),
                 'tileset': self.tileset.to_dict(), 'animations': {k: v.to_dict() for k, v in self.animations.items()}}
 
+    def save(self):
+        """Packs the object into a `.pyxel` file and places it in the `/exported` directory."""
+        export_path = Path(__file__).parents[1] / 'exported'
+        repacked_files = {}
+
+        # we need to load all the original .pyxel documents into memory, mapped with their filenames as keys
+        with zipfile.ZipFile(self._path, 'r') as f:
+            for file in f.filelist:
+                if file.filename != 'docData.json':
+                    repacked_files.update({file.filename: f.read(file.filename)})
+
+        # create a new file in the '/exported' directory and write out all the buffer bytes
+        with zipfile.ZipFile(Path(export_path) / f'{self.name}.pyxel', 'x') as zf:
+            self.settings.update({'PyxiExport': True})
+            zf.writestr('docData.json', data=json.dumps(self.to_dict(), indent=4))
+
+            for k, v in repacked_files.items():
+                zf.writestr(k, data=v)
+
     def get_tile(self) -> PIL.Image.Image:
         """Merges layers and returns the image.
 
@@ -81,7 +101,7 @@ class PyxelImage:
         """Extracts all the individual files from a .pyxel file and
         places them in a `converted/<file_name>` directory."""
         with zipfile.ZipFile(self._path, 'r') as f:
-            f.extractall(f'converted/{self.name}')
+            f.extractall(Path(__file__).parents[1] / f'converted/{self.name}')
 
     @staticmethod
     def _get_data_ref(file: str) -> Dict[str, Any]:
