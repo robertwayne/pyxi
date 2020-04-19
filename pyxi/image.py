@@ -16,7 +16,7 @@ class PyxelImage:
     """
     Represents a `.pyxel` file.
 
-    :param file: Path to the file that you are opening.
+    :param str file: Path to the file that you are opening.
 
     Attributes
         :version: Version of PyxelEdit that was used to create the image file.

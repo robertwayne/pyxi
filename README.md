@@ -5,7 +5,7 @@
 Currently it allows for viewing all attributes of a `.pyxel` file, modifying values, and repacking the file
 into its original format for use within PyxelEdit.
 
-### Example
+### Examples
 Editing tile width and height on an image.
 ```python
 from pyxi import image
@@ -19,6 +19,7 @@ p.save()  # the .pyxel file tiles are now 16x16 in a file called test_16px.pyxel
 
 Loading a `.pyxel` file as a texture in `arcade`.
 ```python
+import arcade
 from pyxi import image
 
 p = image.PyxelImage('test_8px.pyxel')
