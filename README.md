@@ -8,21 +8,18 @@ into its original format for use within PyxelEdit.
 ### Examples
 Editing tile width and height on an image.
 ```python
-from pyxi import image
+from pyxi import PyxelImage
 
-p = image.PyxelImage('test_8px.pyxel')  # assume the tiles are 8x8
-p.name = 'test_16px'
-p.canvas.tile_width = 16
-p.canvas.tile_height = 16
-p.save()  # the .pyxel file tiles are now 16x16 in a file called test_16px.pyxel
+p = PyxelImage('test_8px.pyxel')  # assume the tiles are 8x8
+p.extract()  # extracts all the files into the converted/ directory (seperated layers, json data)
 ```
 
 Loading a `.pyxel` file as a texture in `arcade`.
 ```python
 import arcade
-from pyxi import image
+from pyxi import PyxelImage
 
-p = image.PyxelImage('test_8px.pyxel')
+p = PyxelImage('test_8px.pyxel')
 texture = p.get_tile()  # returns a Pillow Image object
 player = arcade.Sprite(scale=4)
 player.texture = arcade.Texture(name='S8dhS7dja', image=texture)
