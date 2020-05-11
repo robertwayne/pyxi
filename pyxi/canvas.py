@@ -1,6 +1,6 @@
 from typing import Any, Dict
 
-from pyxi.layer import Layer
+from pyxi import Layer
 
 
 class Canvas:

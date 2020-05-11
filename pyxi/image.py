@@ -6,10 +6,7 @@ from typing import Any, Dict, List, Union
 import PIL
 from PIL import Image
 
-from pyxi.animation import Animation
-from pyxi.canvas import Canvas
-from pyxi.palette import Palette
-from pyxi.tileset import Tileset
+from pyxi import Animation, Canvas, Palette, Tileset
 
 
 class PyxelImage:

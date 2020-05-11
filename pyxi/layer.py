@@ -1,6 +1,6 @@
 from typing import Any, Dict
 
-from pyxi.tile_ref import TileReference
+from pyxi import TileReference
 
 
 class Layer:
